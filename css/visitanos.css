@@ -1,0 +1,354 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+header{
+    background-image: url("../images/visitanos.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 947px;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 50px;
+
+    position: relative; 
+}
+
+.logo{
+    margin-top: 20px;
+}
+.hamburguesa{
+    display: none;
+}
+.menu{
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.2); /* transparencia */
+    backdrop-filter: blur(20px); /* efecto vidrio */
+    -webkit-backdrop-filter: blur(60px); 
+    padding: 10px 30px;
+    border-radius: 30px; /* bordes redondeados */
+
+    border: 1px  solid rgba(255,255,255,0.3);
+
+}
+
+.menu-lista{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+.menu a{
+    text-decoration: none;
+    color: #4A4F33;
+    padding-bottom: 5px;
+}
+.menu a.active{
+    border-bottom: 2px solid #F2DB2E;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #4A4F33;
+    padding-bottom: 5px;
+}
+.menu a.active{
+    border-bottom: 2px solid #F2DB2E;
+}
+.idioma{
+    position: absolute;
+    right: 50px;
+}
+
+
+.idioma-btn{
+    background: #E7C63B;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.idioma-opciones{
+    display: none;
+    position: absolute;
+    margin-top: 5px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.idioma-opciones a{
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #22221F;
+}
+
+.idioma-opciones a:hover{
+    background: #f2f2f2;
+}
+.idioma-opciones.activo{
+    display: block;
+}
+
+.contenido-texto{
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.texto-header{
+    position: absolute;
+    bottom: 200px;
+    left: 20px;
+    right: 20px;
+    text-align: left;
+    color: #FFFFFF;
+    text-shadow: 9px 9px 20px rgba(0,0,0,0.50);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.texto-header h1{
+font-size: clamp(3.5rem, 9vw, 7rem);
+    
+    margin: 0;
+}
+.texto-header h1::after{
+    content: "";
+    display: block;
+    width: 700px;
+    height: 3px;
+    background: #F9CA00;
+    margin-top: 5px;
+}
+
+.texto-header h2{
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    
+    color: #F9CA00;
+    font-family: sans-serif;
+    margin-bottom: 0px;
+}
+.texto-header h3{
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    
+    margin-top: 0px;
+    font-family: sans-serif;
+}
+
+/*----------------------------------------*/
+
+.datos h2{
+    margin: 0;
+    font-size: 64px;
+    color: #46668C;
+}
+
+.datos p{
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;      
+    justify-content: center;
+    padding: 60px 0;
+    text-align: center; 
+}
+
+form{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background:#f4f4f4;
+    padding: 30px;
+    border-radius: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+label{
+    min-width: 80px;
+}
+
+.campo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+input{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.datos button{
+    margin-top: 30px;
+    font-size: 25px;
+    height: 60px;
+    background: #E7C63B;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* ------------------------------------*/
+
+.footer{
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+.footer p{
+    font-family: sans-serif;
+    line-height: 1.4;
+}
+.menu-footer{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+   
+}
+.menu-final{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 20px;
+
+}
+.menu-final a{
+    text-decoration: none;
+    color: #4A4F33;
+    padding-bottom: 5px;
+}
+
+
+.menu-final a.active{
+    border-bottom: 2px solid #F2DB2E;
+}
+
+@media (max-width: 768px){
+   
+.hamburguesa{
+        display: block;
+        top: 30px;
+        right: 20px;
+
+        background: rgba(255, 255, 255, 0.801);
+        backdrop-filter: blur(20px);
+
+        border: none;
+        border-radius: 15px;
+
+        padding: 10px 15px;
+        font-size: 28px;
+        color: rgb(32, 51, 28);
+        cursor: pointer;
+
+    }
+.header{
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu{
+        display: none;
+
+        position: relative;
+        top: 10px;
+       
+        transform: translateX(-55%);
+
+        width: 90%;
+        padding: 20px;
+
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(20px);
+
+        border-radius: 25px;
+    }
+    
+    .menu-lista{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .menu.activo{
+        display: flex;
+        justify-content: center;
+}
+    .idioma{
+        right: 20px;
+        top: 20px;
+    }
+
+    .texto-header{
+
+        position: static;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-top: 100px;
+        gap: 20px;
+    }
+
+    .contenido-texto{
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .texto-header h1::after{
+        margin: 10px auto 0;
+        width: 100%;
+    max-width: 320px;
+   
+    }
+    .texto-header h2{
+color: #494947;
+background-color: #E7C63B;
+padding: 15px;
+border-radius: 20px;
+}
+
+    .reserva{
+        margin-right: 0;
+    }
+
+    .menu-final{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El páramo</title>
+    <link rel="stylesheet" href="css/visitanos.css">
+</head>
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    
+    const botonHamburguesa = document.querySelector(".hamburguesa");
+    const menu = document.querySelector(".menu");
+
+    botonHamburguesa.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+    });
+
+
+    const botonIdioma = document.getElementById("cambiarIdioma");
+
+    let idiomaActual = "es";
+
+    const textos = {
+
+        es: {
+            inicio: "INICIO",
+            fauna: "FAUNA Y FLORA",
+            visita: "VISÍTANOS",
+            titulo: "CHINGAZA FUENTE DE VIDA",
+            subtitulo: "Abastece gran parte del agua potable de Bogotá.",
+            
+            tabla: "Tus datos",
+            llenar:"Completa el formulario y nos comunicaremos contigo",
+            sunombre:"Nombre",
+            sucorreo:"Correo",
+            sucel:"Celular",
+            send:"Enviar",
+            final:`Descubre la magia del páramo y la riqueza natural del Parque Nacional Natural Chingaza. Sus paisajes, lagunas y especies únicas lo convierten en un destino ideal para 
+           quienes desean conectarse con la naturaleza y conocer uno de los ecosistemas más importantes de Colombia. Si quieres saber más sobre el recorrido o recibir información sobre cómo visitarlo, 
+           contáctanos y estaremos encantados de ayudarte a planear tu experiencia.`,
+           
+        },
+
+        en: {
+            inicio: "HOME",
+            fauna: "FAUNA AND FLORA",
+            visita: "VISIT US",
+            titulo: "CHINGAZA SOURCE OF LIFE",
+            subtitulo: "It supplies about 70–80% of the drinking water consumed by Bogotá.",
+            
+            tabla: "Your information",
+
+            llenar:"Fill out the form and we'll get in touch with you",
+            sunombre:"Name",
+            sucorreo:"E-mail",
+            sucel:"cell phone",
+            send:"Send",
+            final:`Discover the magic of the páramo and the natural beauty of Chingaza National Natural Park. Its landscapes, lagoons, and unique species make it an ideal 
+           destination for those who want to connect with nature and explore one of Colombia’s most important ecosystems. If you’d like to learn more about the tour or get 
+           information on how to visit, contact us and we’ll be happy to help you plan your experience.`
+
+        }
+
+    };
+
+    botonIdioma.addEventListener("click", () => {
+
+        idiomaActual = idiomaActual === "es" ? "en" : "es";
+
+        document.getElementById("nav-inicio").textContent =
+            textos[idiomaActual].inicio;
+
+        document.getElementById("nav-fauna").textContent =
+            textos[idiomaActual].fauna;
+
+        document.getElementById("nav-visita").textContent =
+            textos[idiomaActual].visita;
+
+        document.getElementById("titulo-principal").textContent =
+            textos[idiomaActual].titulo;
+
+        document.getElementById("subtitulo").textContent =
+            textos[idiomaActual].subtitulo;
+
+       
+
+        document.getElementById("tusdatos").textContent =
+            textos[idiomaActual].tabla;
+
+        document.getElementById("complete").textContent =
+            textos[idiomaActual].llenar;
+
+        document.getElementById("nombre").textContent =
+            textos[idiomaActual].sunombre;
+
+        document.getElementById("correo").textContent=
+        textos[idiomaActual].sucorreo;
+
+        document.getElementById("celular").textContent=
+        textos[idiomaActual].sucel;
+
+        document.getElementById("mensajefin").textContent=
+        textos[idiomaActual].final;
+
+        document.getElementById("enviar").textContent=
+        textos[idiomaActual].send;
+
+        botonIdioma.textContent =
+            idiomaActual === "es" ? "EN" : "ES";
+
+    });
+
+});
+
+</script>
+
+<body>
+    <header class="header">
+        <div>
+            <img src="images/logo_paramo.png" alt="imagen logo de frailejón" class="logo"> 
+        </div>
+    <button class="hamburguesa">
+         ☰
+    </button>
+        <nav class="menu">
+            <ul class="menu-lista">
+                <li><a href="index.html" id="nav-inicio">INICIO</a></li>
+                <li><a href="fauna y flora.html" id="nav-fauna">FAUNA Y FLORA</a></li>
+                <li><a href="visitanos.html" class="active" id="nav-visita">VISITANOS</a></li>
+            </ul>
+        </nav>
+
+        <div class="idioma">
+    <button class="idioma-btn" id="cambiarIdioma">EN</button>
+    <div class="idioma-opciones">
+        <a href="#">ES</a>
+        <a href="#">EN</a>
+    </div>
+        </div>
+
+<div class="texto-header">
+
+    <div class="contenido-texto">
+        <h1 id="titulo-principal">CHINGAZA <br> FUENTE DE VIDA</h1>
+        <h2 id="subtitulo">Proporciona cerca del 70 - 80% del agua <br> potable que consume la ciudad de Bogotá.</h2>
+    </div>
+</div>
+    </header>
+<section class="datos">
+<h2 id="tusdatos">Tus datos</h2>
+<p id="complete">Completa el formulario y nos comunicaremos contigo</p>
+    <form>
+        
+
+        <div class="campo">
+            <label id="nombre">Nombre:</label>
+            <input type="text" placeholder="Ingresa tu nombre">
+        </div>
+
+        <div class="campo">
+            <label id="correo">Correo:</label>
+            <input type="email" placeholder="Ingresa tu correo">
+        </div>
+
+        <div class="campo">
+            <label id="celular">Celular:</label>
+            <input type="text" placeholder="Ingresa tu celular">
+        </div>
+   </form>
+        <button type="submit" id="enviar">Enviar</button>
+ 
+</section>
+<section class="footer">
+    <p id="mensajefin">
+        Descubre la magia del páramo y la riqueza natural del Parque Nacional Natural Chingaza. 
+        Sus paisajes, lagunas y especies únicas lo convierten en un destino ideal para quienes 
+        desean conectarse con la naturaleza y conocer uno de los ecosistemas más importantes de Colombia. 
+        Si quieres saber más sobre el recorrido o recibir información sobre cómo visitarlo, contáctanos y 
+        estaremos encantados de ayudarte a planear tu experiencia.
+    </p>
+    <nav class="menu-footer">
+        <ul class="menu-final">
+                <li><a href="index.html" id="nav-inicio">INICIO</a></li>
+                <li><a href="fauna y flora.html" id="nav-fauna">FAUNA Y FLORA</a></li>
+                <li><a href="visitanos.html"class="active" id="nav-visita">VISITANOS</a></li>
+        </ul>
+    </nav>
+</section>
+</body>
+</html>

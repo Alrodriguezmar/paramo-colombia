@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El páramo</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* hacer que el menu sea tipo hamburguesa */
+
+    const botonHamburguesa = document.querySelector(".hamburguesa");
+    const menu = document.querySelector(".menu");
+
+    botonHamburguesa.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+    });
+
+    /* --para cambiar el idioma--- */
+
+    const botonIdioma = document.getElementById("cambiarIdioma");
+
+    let idiomaActual = "es";
+
+    const textos = {
+
+        es:{
+
+            inicio:"INICIO",
+            fauna:"FAUNA Y FLORA",
+            visita:"VISITANOS",
+            titulo:"CHINGAZA",
+            reservar:"RESERVAR",
+            ubicar:"Ubicación",
+            llegar:`Inicia el recorrido desde bogotá tomando la vía hacia el municipio de La Calera, 
+           ubicado aproximadamente a 18 kilómetros de la ciudad. El trayecto en vehículo dura alrededor de 40 minutos, atravesando paisajes montañosos 
+           característicos de la cordillera Oriental. Al llegar a La Calera, te encontrarás con un guía local, quien dará una charla inicial donde entenderás
+           la importancia de este ecosistema y las buenas practicas para su mantenimiento, el guia acompañará el resto del 
+           recorrido hacia el parque. Desde este punto comienza la ruta hacia las zonas de acceso a Chingaza, un camino que continúa por carreteras rurales 
+           rodeadas de bosques altoandinos y vistas naturales. Durante el trayecto, el paisaje cambia gradualmente hasta llegar a los ecosistemas de páramo 
+           que caracterizan al Parque Nacional Natural Chingaza, uno de los territorios naturales más importantes de Colombia por su biodiversidad 
+           y por ser una fuente fundamental de agua para la región.`,
+           guardia:"GUARDIANA DEL PÁRAMO",
+           personaje:`Ana Pérez es una guía local apasionada por la naturaleza y una verdadera guardiana del páramo. Criada en las montañas cercanas al Parque Nacional Natural Chingaza, 
+           conoce profundamente este ecosistema y comparte su conocimiento con los visitantes durante cada recorrido. Comprometida con la conservación ambiental, Ana promueve el respeto 
+           por la flora y la fauna del páramo, especialmente la protección del oso andino u oso de anteojos (Tremarctos ornatus), una de las especies más representativas de la región. 
+           Su objetivo es que cada visitante comprenda la importancia de cuidar estos paisajes únicos y el papel fundamental que cumplen en la conservación del agua y la biodiversidad.`,
+           final:`Descubre la magia del páramo y la riqueza natural del Parque Nacional Natural Chingaza. Sus paisajes, lagunas y especies únicas lo convierten en un destino ideal para 
+           quienes desean conectarse con la naturaleza y conocer uno de los ecosistemas más importantes de Colombia. Si quieres saber más sobre el recorrido o recibir información sobre cómo visitarlo, 
+           contáctanos y estaremos encantados de ayudarte a planear tu experiencia.`,
+        },
+
+        en:{
+
+            inicio:"HOME",
+            fauna:"FAUNA AND FLORA",
+            visita:"VISIT US",
+            titulo:"CHINGAZA",
+            reservar:"BOOK NOW",
+            ubicar:"location",
+            llegar: `The tour begins in Bogotá, taking the road toward the town of La Calera, 
+           located approximately 18 kilometers from the city. The drive takes about 40 minutes, passing through the mountainous landscapes 
+           characteristic of the Eastern Mountain Range. Upon arriving in La Calera, you will meet a local guide, who will give an introductory talk explaining
+           the importance of this ecosystem and best practices for its conservation; the guide will accompany you for the rest of the 
+           journey to the park. From this point, the route begins toward the access areas to Chingaza, a path that continues along rural roads 
+           surrounded by high-Andean forests and natural vistas. During the journey, the landscape gradually changes until you reach the páramo ecosystems 
+           that characterize Chingaza National Natural Park, one of Colombia’s most important natural areas due to its biodiversity 
+           and its role as a vital water source for the region.`,
+           guardia:"GUARDIAN OF THE MOOR",
+           personaje:`Ana Pérez is a local guide with a passion for nature and a true guardian of the páramo. Raised in the mountains near Chingaza National Natural Park, 
+           she has a deep understanding of this ecosystem and shares her knowledge with visitors on every tour. Committed to environmental conservation, Ana promotes respect 
+           for the páramo’s flora and fauna, particularly the protection of the Andean bear or spectacled bear (Tremarctos ornatus), one of the region’s most iconic species. 
+           Her goal is for every visitor to understand the importance of caring for these unique landscapes and the vital role they play in conserving water and biodiversity.`,
+           final:`Discover the magic of the páramo and the natural beauty of Chingaza National Natural Park. Its landscapes, lagoons, and unique species make it an ideal 
+           destination for those who want to connect with nature and explore one of Colombia’s most important ecosystems. If you’d like to learn more about the tour or get 
+           information on how to visit, contact us and we’ll be happy to help you plan your experience.`
+
+
+        }
+
+    };
+
+    botonIdioma.addEventListener("click", () => {
+
+        idiomaActual = idiomaActual === "es" ? "en" : "es";
+
+        document.getElementById("nav-inicio").textContent =
+        textos[idiomaActual].inicio;
+
+        document.getElementById("nav-fauna").textContent =
+        textos[idiomaActual].fauna;
+
+        document.getElementById("nav-visita").textContent =
+        textos[idiomaActual].visita;
+
+        document.getElementById("titulo-principal").textContent =
+        textos[idiomaActual].titulo;
+
+        document.getElementById("btn-reserva").textContent =
+        textos[idiomaActual].reservar;
+
+        document.getElementById("ubi").textContent=
+        textos[idiomaActual].ubicar;
+
+        document.getElementById("info-ubi").textContent=
+        textos[idiomaActual].llegar;
+
+        document.getElementById("guardiana").textContent=
+        textos[idiomaActual].guardia;
+
+        document.getElementById("info-personaje").textContent=
+        textos[idiomaActual].personaje;
+
+        document.getElementById("mensajefin").textContent=
+        textos[idiomaActual].final;
+
+        botonIdioma.textContent =
+        idiomaActual === "es" ? "EN" : "ES";
+
+        
+    });
+
+});
+
+</script>
+<body>
+    <header class="header">
+        <div>
+            <img src="images/logo_paramo.png" alt="imagen logo de frailejón" class="logo"> 
+        </div>
+    <button class="hamburguesa">
+         ☰
+    </button>
+        <nav class="menu">
+            <ul class="menu-lista">
+                <li><a href="index.html" id="nav-inicio" class="active">INICIO</a></li>
+                <li><a href="fauna y flora.html"  id="nav-fauna">FAUNA Y FLORA</a></li>
+                <li><a href="visitanos.html " id="nav-visita">VISITANOS</a></li>
+            </ul>
+        </nav>
+
+        <div class="idioma">
+    <button class="idioma-btn" id="cambiarIdioma">EN</button>
+    <div class="idioma-opciones">
+        <a href="#">ES</a>
+        <a href="#">EN</a>
+    </div>
+        </div>
+
+<div class="texto-header">
+    <div class="contenido-texto">
+        <h1 id="titulo-principal">CHINGAZA</h1>
+    
+    </div>
+    <div class="reserva">
+        <a href="visitanos.html" id="btn-reserva">RESERVAR</a>
+    </div>
+</div>
+    </header>
+
+<section class="container seccion-info">
+    <div class="info-imagen">
+        <img src="images/img_siempre.png" alt="Parque Nacional Natural Chingaza">
+    </div>
+
+    <div class="info-texto">
+        <h2 id="ubi">UBICACIÓN</h2>
+        <p id="info-ubi">
+           Inicia el recorrido desde bogotá tomando la vía hacia el municipio de La Calera, 
+           ubicado aproximadamente a 18 kilómetros de la ciudad. El trayecto en vehículo dura alrededor de 40 minutos, atravesando paisajes montañosos 
+           característicos de la cordillera Oriental. Al llegar a La Calera, te encontrarás con un guía local, quien dará una charla inicial donde entenderás
+           la importancia de este ecosistema y las buenas practicas para su mantenimiento, el guia acompañará el resto del 
+           recorrido hacia el parque. Desde este punto comienza la ruta hacia las zonas de acceso a Chingaza, un camino que continúa por carreteras rurales 
+           rodeadas de bosques altoandinos y vistas naturales. Durante el trayecto, el paisaje cambia gradualmente hasta llegar a los ecosistemas de páramo 
+           que caracterizan al Parque Nacional Natural Chingaza, uno de los territorios naturales más importantes de Colombia por su biodiversidad 
+           y por ser una fuente fundamental de agua para la región.
+
+        </p>
+    </div>
+</section>
+<section class="guardian">
+    <h2 id="guardiana">GUARDIANA DEL PÁRAMO </h2>
+    <div class="personaje glass">
+        <img src="images/guardiana.png" alt="Ana la cuidadora y guia de chingaza">
+        <h3>ANA PÉREZ</h3>
+        <p id="info-personaje">Ana Pérez es una guía local apasionada por la naturaleza y una verdadera guardiana del páramo. 
+            Criada en las montañas cercanas al Parque Nacional Natural Chingaza, conoce profundamente este ecosistema 
+            y comparte su conocimiento con los visitantes durante cada recorrido. Comprometida con la conservación ambiental, 
+            Ana promueve el respeto por la flora y la fauna del páramo, especialmente la protección del oso andino u oso 
+            de anteojos (Tremarctos ornatus), una de las especies más representativas de la región. Su objetivo es que 
+            cada visitante comprenda la importancia de cuidar estos paisajes únicos y el papel fundamental que cumplen 
+            en la conservación del agua y la biodiversidad.
+        </p>
+    </div>
+</section>
+<section class="footer">
+    <p id="mensajefin">
+        Descubre la magia del páramo y la riqueza natural del Parque Nacional Natural Chingaza. 
+        Sus paisajes, lagunas y especies únicas lo convierten en un destino ideal para quienes 
+        desean conectarse con la naturaleza y conocer uno de los ecosistemas más importantes de Colombia. 
+        Si quieres saber más sobre el recorrido o recibir información sobre cómo visitarlo, contáctanos y 
+        estaremos encantados de ayudarte a planear tu experiencia.
+    </p>
+    <nav class="menu-footer">
+        <ul class="menu-final">
+                <li><a href="index.html" class="active" id="nav-inicio">INICIO</a></li>
+                <li><a href="fauna y flora.html" id="nav-fauna">FAUNA Y FLORA</a></li>
+                <li><a href="visitanos.html" id="nav-visita">VISITANOS</a></li>
+        </ul>
+    </nav>
+</section>
+
+</body>
+
+</html>

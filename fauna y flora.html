@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El páramo</title>
+    <link rel="stylesheet" href="css/fauna.css">
+</head>
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    const botonHamburguesa = document.querySelector(".hamburguesa");
+    const menu = document.querySelector(".menu");
+
+    botonHamburguesa.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+    });
+
+
+
+    const botonIdioma = document.getElementById("cambiarIdioma");
+
+    let idiomaActual = "es";
+
+    const textos = {
+
+        es:{
+
+            inicio:"INICIO",
+            fauna:"FAUNA Y FLORA",
+            visita:"VISITANOS",
+
+            titulo:"HABITANTES DE CHINGAZA",
+
+            subtitulo:"Uno de los páramos más importantes del país",
+
+            descripcion:"clave para la conservación de la naturaleza.",
+
+            reservar:"RESERVAR AHORA",
+           
+           final:`Descubre la magia del páramo y la riqueza natural del Parque Nacional Natural Chingaza. Sus paisajes, lagunas y especies únicas lo convierten en un destino ideal para 
+           quienes desean conectarse con la naturaleza y conocer uno de los ecosistemas más importantes de Colombia. Si quieres saber más sobre el recorrido o recibir información sobre cómo visitarlo, 
+           contáctanos y estaremos encantados de ayudarte a planear tu experiencia.`,
+           fauna:"FAUNA",
+           oso:"OSO ANDINO",
+           infoso:`El oso de anteojos es el único oso de Sudamérica y habita en la cordillera de los Andes, incluyendo regiones de Colombia como el Parque Nacional Natural Chingaza. 
+           Vive en bosques andinos y páramos, y se reconoce por las manchas claras alrededor de sus ojos que parecen anteojos.
+        Su alimentación es principalmente vegetal, basada en frailejones, frutas y bromelias como la puya. Se estima que existen entre 2.500 y 10.000 
+        individuos en estado silvestre, por lo que es una especie vulnerable cuya conservación es fundamental para el equilibrio de los ecosistemas andinos.`,
+        venadito:"VENADO",
+        infovenado:`El venado de cola blanca es un mamífero herbívoro ampliamente distribuido en América, presente en países como Colombia, donde habita en bosques, 
+        sabanas y páramos como el Parque Nacional Natural Chingaza. Se caracteriza por su agilidad y por la cola blanca que levanta como señal de alerta ante posibles peligros.
+        Su alimentación se basa en hojas, brotes, frutos y pastos, cumpliendo un papel importante en la dispersión de semillas y el equilibrio del ecosistema. Aunque no está en peligro crítico, 
+        sus poblaciones pueden verse afectadas por la caza y la pérdida de hábitat, por lo que su conservación sigue siendo importante.`,
+        pava:"PAVA ANDINA",
+        infopava:`La pava andina es un ave propia de los bosques andinos, presente en países como Colombia y común en zonas de montaña cercanas a páramos como el Parque Nacional Natural Chingaza. 
+            Se caracteriza por su plumaje oscuro, su tamaño mediano y su canto fuerte, que suele escucharse en las mañanas.
+            Se alimenta principalmente de frutos, hojas y semillas, desempeñando un papel clave en la dispersión de plantas dentro del ecosistema. 
+            Aunque no se encuentra en peligro crítico, puede verse afectada por la deforestación y la caza, por lo que su conservación es importante para mantener el equilibrio de los bosques andinos.`,
+        frailejon:`Es una planta emblemática de los páramos andinos de Colombia, presente en ecosistemas como el Parque Nacional Natural Chingaza. 
+            Puede vivir más de 100 años y se reconoce por su tallo alto y sus hojas cubiertas de vellosidades que le ayudan a soportar el frío extremo.
+    Su función en el páramo es fundamental: **captura la humedad de la neblina y la transforma en agua**, regulando el ciclo hídrico y abasteciendo 
+    fuentes que llegan a ciudades como Bogotá. Además, ayuda a prevenir la erosión del suelo y a mantener el equilibrio del ecosistema, siendo clave para 
+    la conservación del agua y la vida en la región`,
+    bromelia:"BROMELIA",
+    infobro:`Conocida comúnmente como bromelia, es una planta típica de los ecosistemas andinos de Colombia, presente en bosques y páramos como el Parque Nacional Natural Chingaza. Se caracteriza por sus hojas dispuestas en forma de roseta, capaces de almacenar agua en su interior y adaptarse a condiciones de alta humedad y bajas temperaturas.
+        Su función en el páramo es clave, ya que **retiene agua de la lluvia y la neblina**, creando pequeños reservorios que benefician a otros organismos. Además, proporciona refugio y alimento a diversas especies y contribuye a mantener el equilibrio hídrico del ecosistema, siendo fundamental para la conservación de la biodiversidad`,
+        liquen:"LIQUEN",
+        infoliquen:`Conocido como líquen o “barba de viejo”, es un organismo que resulta de la asociación entre un hongo y un alga, común en ecosistemas fríos y húmedos de Colombia, como el Parque Nacional Natural Chingaza. Se caracteriza por su apariencia colgante y fibrosa, creciendo sobre troncos y ramas de árboles en ambientes de aire limpio.
+Su función en el páramo es fundamental, ya que **absorbe la humedad del ambiente y contribuye al ciclo del agua**, además de ser un importante indicador de la calidad del aire. También participa en la formación del suelo y proporciona microhábitats para pequeños organismos, ayudando al equilibrio del ecosistema.`,
+        orquidea:"ORQUIDEA",
+        inforqui:`La Telipogon berthae es una orquídea propia de los ecosistemas altoandinos de Colombia, presente en ambientes húmedos y fríos cercanos al páramo, como los del Parque Nacional Natural Chingaza. Se caracteriza por sus flores llamativas y complejas, que presentan formas y colores únicos adaptados a la polinización por insectos. Su función en el ecosistema está relacionada con la **polinización y la biodiversidad**, ya que forma parte de las interacciones entre plantas e insectos. Además, contribuye al equilibrio del páramo y los bosques altoandinos, siendo una especie importante dentro de estos ecosistemas, aunque vulnerable a la pérdida de hábitat.`,
+        },
+
+        en:{
+
+            inicio:"HOME",
+            fauna:"FAUNA AND FLORA",
+            visita:"VISIT US",
+
+            titulo:"RESIDENTS OF CHINGAZA",
+
+            subtitulo:"One of the country's most important moorlands",
+
+            descripcion:"essential for nature conservation.",
+
+           reservar:"BOOK NOW",
+           final:`Discover the magic of the páramo and the natural beauty of Chingaza National Natural Park. Its landscapes, lagoons, and unique species make it an ideal 
+           destination for those who want to connect with nature and explore one of Colombia’s most important ecosystems. If you’d like to learn more about the tour or get 
+           information on how to visit, contact us and we’ll be happy to help you plan your experience.`,
+           fauna:"WILDLIFE",
+           oso:"ANDEAN BEAR",
+           infoso:`The spectacled bear is the only bear species in South America and inhabits the Andes mountain range, including regions of Colombia such as Chingaza National Natural Park. 
+            It lives in Andean forests and páramos, and is recognized by the light patches around its eyes that resemble spectacles.
+            Its diet is primarily plant-based, consisting of frailejones, fruits, and bromeliads such as the puya. It is estimated that there are between 
+            2,500 and 10,000 individuals in the wild, making it a vulnerable species whose conservation is essential for the balance of Andean ecosystems.`,
+            venadito:"DEER",
+            infovenado:`The white-tailed deer is a herbivorous mammal widely distributed throughout the Americas, found in countries such as Colombia, where it inhabits forests, savannas, and moorlands 
+            like Chingaza National Natural Park. It is known for its agility and for the white tail it raises as a warning sign in the face of potential danger.
+            Its diet consists of leaves, shoots, fruits, and grasses, playing an important role in seed dispersal and ecosystem balance. Although it is not critically endangered, its populations can be affected by 
+            hunting and habitat loss, making its conservation still important.`,
+            pava:"ANDEAN PAVA",
+            infopava:`The Andean guan is a bird native to Andean forests, found in countries such as Colombia and common in mountainous areas near páramos, 
+            such as Chingaza National Natural Park. It is characterized by its dark plumage, medium size, and loud call, which is often heard in the mornings.
+            It feeds mainly on fruits, leaves, and seeds, playing a key role in the dispersal of plants within the ecosystem. Although it is not critically endangered, 
+            it can be affected by deforestation and hunting, making its conservation important for maintaining the balance of the Andean forests.`,
+            frailejon:`It is an iconic plant of Colombia’s Andean páramos, found in ecosystems such as Chingaza National Natural Park. 
+            It can live for over 100 years and is recognized by its tall stem and hairy leaves, which help it withstand extreme cold.
+            Its role in the páramo is essential: **it captures moisture from the fog and transforms it into water**, regulating the water cycle and supplying 
+            water sources that reach cities like Bogotá. Additionally, it helps prevent soil erosion and maintain the ecosystem’s balance, playing a key role in 
+            the conservation of water and life in the region`,
+            bromelia:"BROMELIAD",
+            infobro:`Commonly known as a bromeliad, this plant is native to Colombia’s Andean ecosystems and is found in forests and páramos such as Chingaza National Natural Park. It is characterized by its rosette-shaped leaves, which can store water and adapt to conditions of high humidity and low temperatures.
+||          Its role in the páramo is crucial, as it **retains water from rain and fog**, creating small reservoirs that benefit other organisms. Additionally, it provides shelter and food for various species and helps maintain the ecosystem’s water balance, making it essential for biodiversity conservation.`,
+            liquen:"LICHEN",
+            infoliquen:`Known as lichen or “old man’s beard,” it is an organism resulting from the symbiosis between a fungus and an alga, common in cold, humid ecosystems in Colombia, such as Chingaza National Natural Park. It is characterized by its hanging, fibrous appearance, growing on tree trunks and branches in environments with clean air.
+            Its role in the páramo is essential, as it **absorbs moisture from the environment and contributes to the water cycle**, in addition to being an important indicator of air quality. It also plays a role in soil formation and provides microhabitats for small organisms, helping to maintain the ecosystem’s balance.`,
+            orquidea:"ORCHID",
+            inforqui:"Telipogon berthae is an orchid native to the high Andean ecosystems of Colombia, found in humid, cold environments near the páramo, such as those in Chingaza National Natural Park. It is characterized by its striking and complex flowers, which feature unique shapes and colors adapted for pollination by insects. Its role in the ecosystem is related to **pollination and biodiversity**, as it is part of the interactions between plants and insects. Furthermore, it contributes to the balance of the páramo and high-Andean forests, serving as an important species within these ecosystems, although it is vulnerable to habitat loss.",
+        }
+
+    };
+
+    botonIdioma.addEventListener("click", () => {
+
+        idiomaActual = idiomaActual === "es" ? "en" : "es";
+
+        document.getElementById("nav-inicio").textContent =
+        textos[idiomaActual].inicio;
+
+        document.getElementById("nav-fauna").textContent =
+        textos[idiomaActual].fauna;
+
+        document.getElementById("nav-visita").textContent =
+        textos[idiomaActual].visita;
+
+        document.getElementById("titulo-principal").textContent =
+        textos[idiomaActual].titulo;
+
+        document.getElementById("subtitulo").textContent =
+        textos[idiomaActual].subtitulo;
+
+        document.getElementById("descripcion").textContent =
+        textos[idiomaActual].descripcion;
+
+        document.getElementById("btn-reserva").textContent =
+        textos[idiomaActual].reservar;
+
+
+        document.getElementById("mensajefin").textContent=
+        textos[idiomaActual].final;
+
+        document.getElementById("animales").textContent=
+        textos[idiomaActual].fauna;
+
+        document.getElementById("oso-and").textContent=
+        textos[idiomaActual].oso;
+
+        document.getElementById("oso-descripcion").textContent=
+        textos[idiomaActual].infoso;
+
+        document.getElementById("venado").textContent=
+        textos[idiomaActual].venadito;
+
+        document.getElementById("info-ven").textContent=
+        textos[idiomaActual].infovenado;
+
+        document.getElementById("pava-and").textContent=
+        textos[idiomaActual].pava;
+
+        document.getElementById("info-pava").textContent=
+        textos[idiomaActual].infopava;
+
+
+        document.getElementById("info-frailejon").textContent=
+        textos[idiomaActual].frailejon;
+
+        document.getElementById("brome").textContent=
+        textos[idiomaActual].bromelia;
+
+        document.getElementById("info-bromelia").textContent=
+        textos[idiomaActual].infobro;
+
+        document.getElementById("liquenom").textContent=
+        textos[idiomaActual].liquen;
+
+        document.getElementById("info-liquen").textContent=
+        textos[idiomaActual].infoliquen;
+
+        document.getElementById("orqui").textContent=
+        textos[idiomaActual].orquidea;
+
+        document.getElementById("info-orqui").textContent=
+        textos[idiomaActual].inforqui;
+
+        botonIdioma.textContent =
+        idiomaActual === "es" ? "EN" : "ES";
+
+    });
+
+});
+
+</script>
+<body>
+    <header class="header">
+        <div>
+            <img src="images/logo_paramo.png" alt="imagen logo de frailejón" class="logo"> 
+        </div>
+    <button class="hamburguesa">
+         ☰
+    </button>
+        <nav class="menu">
+            <ul class="menu-lista">
+                <li><a href="index.html" id="nav-inicio">INICIO</a></li>
+                <li><a href="fauna y flora.html" class="active" id="nav-fauna">FAUNA Y FLORA</a></li>
+                <li><a href="visitanos.html" id="nav-visita">VISITANOS</a></li>
+            </ul>
+        </nav>
+        
+
+        <div class="idioma">
+    <button class="idioma-btn" id="cambiarIdioma">EN</button>
+    <div class="idioma-opciones">
+        <a href="#">ES</a>
+        <a href="#">EN</a>
+    </div>
+        </div>
+
+<div class="texto-header">
+
+    <div class="contenido-texto">
+        <h1  id="titulo-principal">HABITANTES DE <br> CHINGAZA</h1>
+        <h2 id="subtitulo">Uno de los páramos más importantes del país</h2>
+        <h3 id="descripcion">clave para la conservación de la naturaleza.</h3>
+    </div>
+
+    <div class="reserva">
+        <a href="visitanos.html" id="btn-reserva">RESERVAR AHORA</a>
+    </div>
+
+</div>
+
+    </header>
+
+
+<section class="fauna">
+     <h2 id="animales">Fauna</h2>
+
+    <div class="carrusel slider-mobile">
+        <div class="oso">
+            <h1 id="oso-and">OSO ANDINO</h1>
+        <div class="infoso">
+        <a href="#">Tremarctos ornatus</a>
+         <div  class="info-extra">
+        <p id="oso-descripcion">
+            El oso de anteojos es el único oso de Sudamérica y habita en la cordillera de los Andes, 
+            incluyendo regiones de Colombia como el Parque Nacional Natural Chingaza. Vive en bosques andinos y páramos, 
+            y se reconoce por las manchas claras alrededor de sus ojos que parecen anteojos. <br>
+
+            Su alimentación es principalmente vegetal, basada en frailejones, frutas y bromelias como la puya. 
+            Se estima que existen entre 2.500 y 10.000 individuos en estado silvestre, por lo que es una especie vulnerable 
+            cuya conservación es fundamental para el equilibrio de los ecosistemas andinos.
+
+        </p>
+    </div>
+    </div>
+   
+        </div>
+
+        <div class="venado">
+            <h1 id="venado">VENADO</h1>
+        <div class="infvenado">
+        <a href="#">Odocoileus virginianus</a>
+        <div  class="info-extra">
+        <p id="info-ven">
+            El venado de cola blanca es un mamífero herbívoro ampliamente distribuido en América, presente en países como Colombia, 
+            donde habita en bosques, sabanas y páramos como el Parque Nacional Natural Chingaza. Se caracteriza por su agilidad y 
+            por la cola blanca que levanta como señal de alerta ante posibles peligros. <br>
+
+            Su alimentación se basa en hojas, brotes, frutos y pastos, cumpliendo un papel importante en la dispersión de semillas 
+            y el equilibrio del ecosistema. Aunque no está en peligro crítico, sus poblaciones pueden verse afectadas por la caza y 
+            la pérdida de hábitat, por lo que su conservación sigue siendo importante.
+
+
+        </p>
+    </div>
+    </div>
+        </div>
+
+        <div class="pava">
+            <h1 id="pava-and">PAVA ANDINA</h1>
+            <div class="infpava">
+        <a href="#"> Penelope montagnii</a>
+        <div  class="info-extra">
+        <p id="info-pava">
+            La pava andina es un ave propia de los bosques andinos, presente en países como Colombia y común en zonas de montaña 
+            cercanas a páramos como el Parque Nacional Natural Chingaza. Se caracteriza por su plumaje oscuro, su tamaño mediano y su canto fuerte, 
+            que suele escucharse en las mañanas. <br>
+
+            Se alimenta principalmente de frutos, hojas y semillas, desempeñando un papel clave en la dispersión de plantas dentro del ecosistema. 
+            Aunque no se encuentra en peligro crítico, puede verse afectada por la deforestación y la caza, por lo que su conservación es importante 
+            para mantener el equilibrio de los bosques andinos.
+
+
+        </p>
+    </div>
+    </div>
+        </div>
+    </div>
+    <div class="puntos">
+    <span class="dot activo"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+</section>
+
+
+<section class="flora">
+     <h2 id="plantas">Flora</h2>
+
+    <div class="carrusel slider-mobile">
+        <div class="frailejon">
+            <h1>FRAILEJON</h1>
+        <div class="infon">
+        <a href="#">Espeletia grandiflora</a>
+         <div  class="info-extra">
+        <p id="info-frailejon">
+            Es una planta emblemática de los páramos andinos de Colombia, presente en ecosistemas como el Parque Nacional Natural Chingaza. 
+            Puede vivir más de 100 años y se reconoce por su tallo alto y sus hojas cubiertas de vellosidades que le ayudan a soportar el frío extremo.
+<br>
+    Su función en el páramo es fundamental: **captura la humedad de la neblina y la transforma en agua**, regulando el ciclo hídrico y abasteciendo 
+    fuentes que llegan a ciudades como Bogotá. Además, ayuda a prevenir la erosión del suelo y a mantener el equilibrio del ecosistema, siendo clave para 
+    la conservación del agua y la vida en la región.
+
+        </p>
+    </div>
+    </div>
+   
+        </div>
+
+        <div class="bromelia">
+            <h1 id="brome">BROMELIA</h1>
+        <div class="infbromelia">
+        <a href="#"> Puya goudotiana</a>
+        <div  class="info-extra">
+        <p id="info-bromelia">
+            Conocida comúnmente como bromelia, es una planta típica de los ecosistemas andinos de Colombia, presente en bosques y páramos como el Parque Nacional Natural Chingaza. 
+            Se caracteriza por sus hojas dispuestas en forma de roseta, capaces de almacenar agua en su interior y adaptarse a condiciones de alta humedad y bajas temperaturas.
+<br>
+            Su función en el páramo es clave, ya que **retiene agua de la lluvia y la neblina**, creando pequeños reservorios que benefician a otros organismos. Además, proporciona 
+            refugio y alimento a diversas especies y contribuye a mantener el equilibrio hídrico del ecosistema, siendo fundamental para la conservación de la biodiversidad.
+
+
+
+        </p>
+    </div>
+    </div>
+        </div>
+
+        <div class="liquen">
+            <h1 id="liquenom">LIQUEN</h1>
+            <div class="infliquen">
+        <a href="#">   Usnea</a>
+        <div  class="info-extra">
+        <p id="info-liquen">
+            Conocido como líquen o “barba de viejo”, es un organismo que resulta de la asociación entre un hongo y un alga, común en ecosistemas fríos y húmedos de Colombia, 
+            como el Parque Nacional Natural Chingaza. Se caracteriza por su apariencia colgante y fibrosa, creciendo sobre troncos y ramas de árboles en ambientes de aire limpio.
+<br>
+Su función en el páramo es fundamental, ya que **absorbe la humedad del ambiente y contribuye al ciclo del agua**, además de ser un importante indicador de la calidad del aire. 
+También participa en la formación del suelo y proporciona microhábitats para pequeños organismos, ayudando al equilibrio del ecosistema.
+
+
+
+        </p>
+    </div>
+    </div>
+        </div>
+        
+        <div class="orquidea">
+            <h1 id="orqui">ORQUIDEA</h1>
+            <div class="inforquidea">
+        <a href="#">  Telipogon berthae</a>
+        <div  class="info-extra">
+        <p id="info-orqui">
+           La Telipogon berthae es una orquídea propia de los ecosistemas altoandinos de Colombia, presente en ambientes húmedos y fríos cercanos al páramo, como los del Parque Nacional Natural Chingaza. 
+           Se caracteriza por sus flores llamativas y complejas, que presentan formas y colores únicos adaptados a la polinización por insectos.
+
+Su función en el ecosistema está relacionada con la **polinización y la biodiversidad**, ya que forma parte de las interacciones entre plantas e insectos. Además, contribuye al equilibrio del páramo y 
+los bosques altoandinos, siendo una especie importante dentro de estos ecosistemas, aunque vulnerable a la pérdida de hábitat.
+
+
+
+        </p>
+    </div>
+    </div>
+        </div>
+    </div>
+    <div class="puntos">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+</section>
+<section class="footer">
+    <p id="mensajefin">
+        Descubre la magia del páramo y la riqueza natural del Parque Nacional Natural Chingaza. 
+        Sus paisajes, lagunas y especies únicas lo convierten en un destino ideal para quienes 
+        desean conectarse con la naturaleza y conocer uno de los ecosistemas más importantes de Colombia. 
+        Si quieres saber más sobre el recorrido o recibir información sobre cómo visitarlo, contáctanos y 
+        estaremos encantados de ayudarte a planear tu experiencia.
+    </p>
+    <nav class="menu-footer">
+        <ul class="menu-final">
+                <li><a href="index.html" id="nav-inicio">INICIO</a></li>
+                <li><a href="fauna y flora.html" class="active" id="nav-fauna">FAUNA Y FLORA</a></li>
+                <li><a href="visitanos.html" id="nav-visita">VISITANOS</a></li>
+        </ul>
+    </nav>
+</section>
+</body>
+</html>
